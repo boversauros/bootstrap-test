@@ -14,11 +14,14 @@
   },
   "author": "Oriol Bover",
   "license": "ISC",
-  "bugs":{
-    "url":"https://github.com/boversauros/bootstrap-test/issues"
+  "bugs": {
+    "url": "https://github.com/boversauros/bootstrap-test/issues"
   },
   "homepage": "https://github.com/boversauros/bootstrap-test#readme",
   "devDependencies": {
     "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6"
   }
 }

@@ -37,3 +37,8 @@ body{
 .navbar-inverse {
      background-color: #512DA8;
 }
+
+.own-primary {
+    background-color: #512DA8;
+    color: white;
+}

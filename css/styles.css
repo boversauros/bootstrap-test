@@ -42,3 +42,12 @@ body{
     background-color: #512DA8;
     color: white;
 }
+
+.reserve-primary {
+    background-color: #F6AD59;
+    color: white;
+}
+
+.radio-inline {
+    margin-right: 5%;
+}

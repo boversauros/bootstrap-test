@@ -73,3 +73,21 @@ body{
     position: absolute;
     bottom: 0px;
 }
+
+//assignament-four 
+.modal-header{
+    color: floralwhite;
+    background-color: $background-dark;
+
+    .close{
+        color: floralwhite;
+    }
+}
+
+.modal-body{
+    background-color: $background-pale;
+}
+
+.modal-footer{
+    background-color: $background-light;
+}

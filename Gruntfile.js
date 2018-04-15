@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 
     require('jit-grunt')(grunt, {
         useminPrepare: 'grunt-usemin'
-      });
+    });
 
     // Define the configuration for all the tasks
     grunt.initConfig({
@@ -17,6 +17,29 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     'css/styles.css': 'css/styles.scss'
+                }
+            }
+        },
+
+        watch: {
+            files: 'css/*.scss',
+            tasks: ['sass']
+        },
+
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src: [
+                        'css/*.css',
+                        '*.html',
+                        'js/*.js'
+                    ]
+                },
+                options: {
+                    watchTask: true,
+                    server: {
+                        baseDir: './'
+                    }
                 }
             }
         },
@@ -52,30 +75,6 @@ module.exports = function (grunt) {
             }
         },
 
-        watch: {
-            files: 'css/*.scss',
-            tasks: ['sass']
-        },
-
-        browserSync: {
-            dev: {
-                bsFiles: {
-                    src : [
-                        'css/*.css',
-                        '*.html',
-                        'js/*.js'
-                    ]
-                },
-
-                options: {
-                    watchTask: true,
-                    server: {
-                        baseDir: "./"
-                    }
-                }
-            }
-        },
-
         imagemin: {
             dynamic: {
                 files: [{
@@ -86,7 +85,7 @@ module.exports = function (grunt) {
                 }]
             }
         },
-
+        
         useminPrepare: {
             foo: {
                 dest: 'dist',
@@ -118,11 +117,11 @@ module.exports = function (grunt) {
             options: {
                 separator: ';'
             },
-    
+  
             // dist configuration is provided by useminPrepare
             dist: {}
         },
-
+        
         // Uglify
         uglify: {
             // dist configuration is provided by useminPrepare
@@ -146,13 +145,13 @@ module.exports = function (grunt) {
             // in dist directory
                 files: [{
                     src: [
-                        'dist/js/*.js',
                         'dist/css/*.css',
+                        'dist/js/*.js',
                     ]
                 }]
             }
         },
-  
+
         // Usemin
         // Replaces all assets with their revved version in html and css files.
         // options.assetDirs contains the directories for finding the assets
@@ -163,10 +162,13 @@ module.exports = function (grunt) {
                 assetsDirs: ['dist', 'dist/css','dist/js']
             }
         }
+
     });
 
     grunt.registerTask('css', ['sass']);
+
     grunt.registerTask('default', ['browserSync', 'watch']);
+
     grunt.registerTask('build', [
         'clean',
         'copy',
@@ -180,4 +182,3 @@ module.exports = function (grunt) {
     ]);
 
 };
-
